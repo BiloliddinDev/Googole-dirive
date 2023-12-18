@@ -5,10 +5,11 @@ import Sidbar from "../../components/shared/sidbar";
 
 const AuthLayout = ({ children }: childrenProps) => {
   return (
-    <div>
+    <div className="relative">
+      <div className="absolute inset-0 z-40 w-screen h-screen bg-black opacity-50"></div>
       <Navbar />
       <Sidbar />
-      <main className="flex justify-center items-center w-full h-[90vh]  relative">
+      <main className="flex justify-center items-center w-full z-50 h-[90vh] relative">
         {children}
       </main>
     </div>

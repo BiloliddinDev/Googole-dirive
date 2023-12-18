@@ -10,8 +10,6 @@ import { Avatar, AvatarFallback } from "../ui/avatar";
 const Navbar = () => {
   const { userId } = auth();
 
-  console.log(userId);
-
   return (
     <div className="h-[10vh] fixed left-0 top-0 right-0 z-30 bg-[#f7f9fc] dark:bg-[#1f1f1f] border-b">
       <div className="flex items-center justify-between my-4 mx-6">
