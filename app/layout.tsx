@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "../components/provider/theme-provider";
+import Modalprovider from "../components/provider/modal-provider";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body>
+          <Toaster position="top-center" />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -27,6 +30,7 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="Googole drive"
           >
+            <Modalprovider />
             {children}
           </ThemeProvider>
         </body>
