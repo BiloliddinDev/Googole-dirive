@@ -38,7 +38,7 @@ const PopoverAction = () => {
       };
     }
 
-    const promise = addDoc(collection(DB, "file "), {
+    const promise = addDoc(collection(DB, "files"), {
       name: file.name,
       type: file.type,
       size: file.size,
