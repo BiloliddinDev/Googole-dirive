@@ -15,8 +15,10 @@ import { DB, Storge } from "../../lib/firebase";
 import { useUser } from "@clerk/nextjs";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const PopoverAction = () => {
+  const router = useRouter();
   const { onOpen } = useFolder();
   const inputRef = useRef<ElementRef<"input">>(null);
   const { user } = useUser();
@@ -51,7 +53,7 @@ const PopoverAction = () => {
         getDownloadURL(refs).then((url) => {
           updateDoc(doc(DB, "files", docs?.id), {
             image: url,
-          });
+          }).then(() => router.refresh());
         });
       });
     });

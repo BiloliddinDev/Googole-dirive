@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import Listitem from "./list-iteam";
 
 interface ListTaype {
   folders: Ifoldertaype[];
@@ -26,7 +27,9 @@ const Lists = ({ files, folders }: ListTaype) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <div></div>
+        {[...folders, ...files].map((e) => (
+          <Listitem key={e.id} item={e} />
+        ))}
       </TableBody>
     </Table>
   );

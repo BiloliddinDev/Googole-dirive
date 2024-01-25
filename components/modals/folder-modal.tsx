@@ -28,8 +28,10 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { DB } from "../../lib/firebase";
 import { useUser } from "@clerk/nextjs";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const FolderMadal = () => {
+  const router = useRouter();
   const { user } = useUser();
   const { isOpen, onClose } = useFolder();
 
@@ -50,6 +52,7 @@ const FolderMadal = () => {
     }).then(() => {
       form.reset();
       onClose();
+      router.refresh();
     });
 
     toast.promise(promise, {
